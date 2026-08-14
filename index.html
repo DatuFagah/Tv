@@ -7,6 +7,7 @@
 <title>MY TV Malaysia</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -18,11 +19,13 @@ body{
     font-family:Arial,sans-serif;
 }
 
+/* HEADER */
+
 header{
     text-align:center;
-    padding:20px;
-    background:#111;
-    border-bottom:2px solid #222;
+    padding:22px 10px;
+    background:#101010;
+    border-bottom:1px solid #222;
 }
 
 header h1{
@@ -31,92 +34,105 @@ header h1{
 }
 
 header p{
-    color:#888;
     margin:8px 0 0;
+    color:#888;
+}
+
+/* CONTAINER */
+
+.container{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    padding:12px;
 }
 
 /* TV */
 
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
 .tv{
     background:linear-gradient(145deg,#444,#111);
-    border:10px solid #252525;
-    border-radius:30px;
-    padding:15px;
+    border:8px solid #292929;
+    border-radius:25px;
+    padding:12px;
     box-shadow:
         0 0 0 3px #555,
         0 20px 50px #000;
 }
 
+/* SCREEN */
+
 .screen{
-    position:relative;
     width:100%;
     aspect-ratio:16/9;
     background:#000;
     border-radius:8px;
-    overflow:hidden;
-}
-
-.screen iframe{
-    width:100%;
-    height:100%;
-    border:0;
-}
-
-.screen-message{
-    position:absolute;
-    inset:0;
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
-    background:#050505;
     text-align:center;
     padding:20px;
 }
 
-.screen-message h2{
-    margin:0 0 10px;
+.screen-content h2{
+    font-size:30px;
+    margin:0 0 12px;
 }
 
-.watch-button{
+.screen-content p{
+    color:#aaa;
+    margin-bottom:20px;
+}
+
+/* BUTTON WATCH */
+
+.watch{
+    display:inline-block;
+    padding:13px 25px;
     background:#e60000;
     color:white;
-    padding:12px 20px;
-    border-radius:8px;
     text-decoration:none;
+    border-radius:8px;
     font-weight:bold;
+    font-size:16px;
 }
+
+.watch:hover{
+    background:#ff2020;
+}
+
+/* LIVE */
 
 .live{
     position:absolute;
-    top:12px;
-    left:12px;
-    z-index:5;
+    margin-top:-170px;
+    margin-left:-400px;
+
     background:red;
-    padding:6px 10px;
+    padding:7px 10px;
     border-radius:5px;
-    font-size:12px;
+
     font-weight:bold;
+    font-size:12px;
 }
+
+/* CHANNEL NAME */
 
 .channel-name{
     background:#111;
-    padding:15px;
+    padding:14px;
+
     font-size:20px;
     font-weight:bold;
 }
+
+/* TV FOOTER */
 
 .tv-footer{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:12px 5px 0;
+
+    padding:12px 5px 2px;
 }
 
 .logo{
@@ -131,12 +147,14 @@ header p{
 .power{
     width:13px;
     height:13px;
+
     background:red;
     border-radius:50%;
+
     box-shadow:0 0 15px red;
 }
 
-/* CHANNEL */
+/* TITLE */
 
 .title{
     margin-top:30px;
@@ -144,26 +162,39 @@ header p{
     font-weight:bold;
 }
 
+/* CHANNELS */
+
 .channels{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:12px;
+
     margin-top:18px;
 }
 
 .channel{
     background:#151515;
+
     border:2px solid #292929;
     border-radius:14px;
+
     padding:20px 10px;
+
     text-align:center;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
 .channel:hover{
     border-color:#00bfff;
     transform:translateY(-3px);
+}
+
+.channel.active{
+    border-color:#00bfff;
+    box-shadow:0 0 18px rgba(0,191,255,.3);
 }
 
 .icon{
@@ -173,20 +204,30 @@ header p{
 .name{
     margin-top:8px;
     font-weight:bold;
+    font-size:17px;
 }
 
 .badge{
     display:inline-block;
+
     margin-top:9px;
-    padding:5px 8px;
+
+    background:red;
+
+    padding:5px 9px;
+
     border-radius:5px;
-    background:#e60000;
+
     font-size:10px;
 }
 
 /* MOBILE */
 
 @media(max-width:600px){
+
+    header h1{
+        font-size:25px;
+    }
 
     .container{
         padding:8px;
@@ -200,16 +241,23 @@ header p{
 
     .channels{
         grid-template-columns:repeat(2,1fr);
+        gap:10px;
     }
 
     .title{
-        font-size:22px;
+        font-size:23px;
     }
 
     .name{
         font-size:15px;
     }
+
+    .live{
+        margin-left:-160px;
+    }
+
 }
+
 </style>
 </head>
 
@@ -226,29 +274,43 @@ header p{
 
 <div class="container">
 
+
+<!-- TV FRAME -->
+
 <div class="tv">
 
 <div class="screen">
 
-<div class="live">
-● LIVE
-</div>
-
-<div class="screen-message" id="message">
+<div class="screen-content">
 
 <h2>📺 MY TV</h2>
 
-<p>
-Pilih saluran di bawah untuk menonton.
+<p id="screenText">
+Pilih saluran untuk menonton.
 </p>
 
-</div>
+<a
+id="watchButton"
+class="watch"
+href="#"
+target="_self"
+style="display:none;">
+
+▶ TONTON SEKARANG
+
+</a>
 
 </div>
 
+</div>
 
-<div class="channel-name" id="channelName">
-🇲🇾 Pilih Channel
+
+<div
+class="channel-name"
+id="channelName">
+
+🇲🇾 PILIH CHANNEL
+
 </div>
 
 
@@ -265,6 +327,8 @@ MY <span>TV</span>
 </div>
 
 
+<!-- CHANNEL TITLE -->
+
 <div class="title">
 📺 Saluran Malaysia
 </div>
@@ -275,20 +339,24 @@ MY <span>TV</span>
 
 <!-- TV1 -->
 
-<div class="channel"
-onclick="watch(
+<div
+class="channel"
+onclick="openTV(
 'TV1',
-'https://rtmklik.rtm.gov.my/live/khas/tv1'
+'https://rtmklik.rtm.gov.my/live/khas/tv1',
+this
 )">
 
-<div class="icon">🇲🇾</div>
+<div class="icon">
+🇲🇾
+</div>
 
 <div class="name">
 TV1
 </div>
 
 <div class="badge">
-RASMI
+LIVE
 </div>
 
 </div>
@@ -296,41 +364,99 @@ RASMI
 
 <!-- TV2 -->
 
-<div class="channel"
-onclick="watch(
+<div
+class="channel"
+onclick="openTV(
 'TV2',
-'https://rtmklik.rtm.gov.my/live/khas/tv2'
+'https://rtmklik.rtm.gov.my/live/khas/tv2',
+this
 )">
 
-<div class="icon">🇲🇾</div>
+<div class="icon">
+🇲🇾
+</div>
 
 <div class="name">
 TV2
 </div>
 
 <div class="badge">
-RASMI
+LIVE
 </div>
 
 </div>
 
 
-<!-- TV OKEY -->
+<!-- OKEY -->
 
-<div class="channel"
-onclick="watch(
+<div
+class="channel"
+onclick="openTV(
 'TV OKEY',
-'https://rtmklik.rtm.gov.my/live/khas/okey'
+'https://rtmklik.rtm.gov.my/live/khas/okey',
+this
 )">
 
-<div class="icon">🇲🇾</div>
+<div class="icon">
+🇲🇾
+</div>
 
 <div class="name">
 TV OKEY
 </div>
 
 <div class="badge">
-RASMI
+LIVE
+</div>
+
+</div>
+
+
+<!-- BERITA -->
+
+<div
+class="channel"
+onclick="openTV(
+'BERITA RTM',
+'https://rtmklik.rtm.gov.my/live/tv/berita',
+this
+)">
+
+<div class="icon">
+📰
+</div>
+
+<div class="name">
+BERITA RTM
+</div>
+
+<div class="badge">
+LIVE
+</div>
+
+</div>
+
+
+<!-- SUKAN -->
+
+<div
+class="channel"
+onclick="openTV(
+'SUKAN RTM',
+'https://rtmklik.rtm.gov.my/live/tv/sukan',
+this
+)">
+
+<div class="icon">
+⚽
+</div>
+
+<div class="name">
+SUKAN RTM
+</div>
+
+<div class="badge">
+LIVE
 </div>
 
 </div>
@@ -338,49 +464,184 @@ RASMI
 
 <!-- TV6 -->
 
-<div class="channel"
-onclick="watch(
+<div
+class="channel"
+onclick="openTV(
 'TV6',
-'https://rtmklik.rtm.gov.my/live/tv/tv6'
+'https://rtmklik.rtm.gov.my/live/tv/tv6',
+this
 )">
 
-<div class="icon">📺</div>
+<div class="icon">
+📺
+</div>
 
 <div class="name">
 TV6
 </div>
 
 <div class="badge">
-RASMI
+LIVE
 </div>
 
 </div>
 
 
-<!-- BERITA RTM -->
+<!-- TV3 -->
 
-<div class="channel"
-onclick="watch(
-'BERITA RTM',
-'https://rtmklik.rtm.gov.my/live/tv/berita'
+<div
+class="channel"
+onclick="openTV(
+'TV3',
+'https://browse.tonton.com.my/live',
+this
 )">
 
-<div class="icon">📰</div>
+<div class="icon">
+📺
+</div>
 
 <div class="name">
-BERITA RTM
+TV3
 </div>
 
 <div class="badge">
-RASMI
+LIVE
 </div>
 
 </div>
 
 
-<!-- SUKAN RTM -->
+<!-- NTV7 -->
 
-<div class="channel"
-onclick="watch(
-'SUKAN RTM',
-'https://rtm
+<div
+class="channel"
+onclick="openTV(
+'NTV7',
+'https://browse.tonton.com.my/live',
+this
+)">
+
+<div class="icon">
+📺
+</div>
+
+<div class="name">
+NTV7
+</div>
+
+<div class="badge">
+LIVE
+</div>
+
+</div>
+
+
+<!-- 8TV -->
+
+<div
+class="channel"
+onclick="openTV(
+'8TV',
+'https://browse.tonton.com.my/live/8tv',
+this
+)">
+
+<div class="icon">
+📺
+</div>
+
+<div class="name">
+8TV
+</div>
+
+<div class="badge">
+LIVE
+</div>
+
+</div>
+
+
+<!-- TV9 -->
+
+<div
+class="channel"
+onclick="openTV(
+'TV9',
+'https://browse.tonton.com.my/live',
+this
+)">
+
+<div class="icon">
+📺
+</div>
+
+<div class="name">
+TV9
+</div>
+
+<div class="badge">
+LIVE
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+function openTV(name,url,button){
+
+/* tukar nama */
+
+document.getElementById(
+"channelName"
+).innerHTML =
+"🇲🇾 " + name;
+
+
+/* tukar tulisan */
+
+document.getElementById(
+"screenText"
+).innerHTML =
+"Anda sedang membuka siaran rasmi " +
+name;
+
+
+/* tampilkan button */
+
+let btn =
+document.getElementById(
+"watchButton"
+);
+
+btn.style.display="inline-block";
+
+btn.href=url;
+
+
+/* active */
+
+document
+.querySelectorAll(".channel")
+.forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+button.classList.add("active");
+
+
+/* buka player rasmi */
+
+window.location.href=url;
+
+}
+
+</script>
