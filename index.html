@@ -3,645 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MY TV Malaysia</title>
+<title>Datu Pagah Muzik PRO</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
-    margin:0;
-    background:#050505;
-    color:white;
-    font-family:Arial,sans-serif;
+margin:0;
+font-family:Arial,sans-serif;
+background:#070707;
+color:#fff;
+overflow-x:hidden;
 }
-
-/* HEADER */
 
 header{
-    text-align:center;
-    padding:22px 10px;
-    background:#101010;
-    border-bottom:1px solid #222;
-}
-
-header h1{
-    margin:0;
-    font-size:28px;
-}
-
-header p{
-    margin:8px 0 0;
-    color:#888;
-}
-
-/* CONTAINER */
-
-.container{
-    width:100%;
-    max-width:1000px;
-    margin:auto;
-    padding:12px;
-}
-
-/* TV */
-
-.tv{
-    background:linear-gradient(145deg,#444,#111);
-    border:8px solid #292929;
-    border-radius:25px;
-    padding:12px;
-    box-shadow:
-        0 0 0 3px #555,
-        0 20px 50px #000;
-}
-
-/* SCREEN */
-
-.screen{
-    width:100%;
-    aspect-ratio:16/9;
-    background:#000;
-    border-radius:8px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-.screen-content h2{
-    font-size:30px;
-    margin:0 0 12px;
-}
-
-.screen-content p{
-    color:#aaa;
-    margin-bottom:20px;
-}
-
-/* BUTTON WATCH */
-
-.watch{
-    display:inline-block;
-    padding:13px 25px;
-    background:#e60000;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-    font-size:16px;
-}
-
-.watch:hover{
-    background:#ff2020;
-}
-
-/* LIVE */
-
-.live{
-    position:absolute;
-    margin-top:-170px;
-    margin-left:-400px;
-
-    background:red;
-    padding:7px 10px;
-    border-radius:5px;
-
-    font-weight:bold;
-    font-size:12px;
-}
-
-/* CHANNEL NAME */
-
-.channel-name{
-    background:#111;
-    padding:14px;
-
-    font-size:20px;
-    font-weight:bold;
-}
-
-/* TV FOOTER */
-
-.tv-footer{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:12px 5px 2px;
+padding:25px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #222;
+position:sticky;
+top:0;
+background:rgba(7,7,7,.92);
+backdrop-filter:blur(15px);
+z-index:10;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:bold;
+font-size:24px;
+font-weight:bold;
 }
 
 .logo span{
-    color:#00bfff;
+color:#ff0757;
 }
 
-.power{
-    width:13px;
-    height:13px;
-
-    background:red;
-    border-radius:50%;
-
-    box-shadow:0 0 15px red;
+.container{
+max-width:1100px;
+margin:auto;
+padding:30px 20px 160px;
 }
 
-/* TITLE */
-
-.title{
-    margin-top:30px;
-    font-size:25px;
-    font-weight:bold;
+.hero{
+text-align:center;
+padding:30px 10px;
 }
 
-/* CHANNELS */
-
-.channels{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-
-    margin-top:18px;
+.hero h1{
+font-size:42px;
+margin:0;
+background:linear-gradient(90deg,#ff0757,#8c00ff);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.channel{
-    background:#151515;
-
-    border:2px solid #292929;
-    border-radius:14px;
-
-    padding:20px 10px;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:.2s;
+.hero p{
+color:#888;
 }
 
-.channel:hover{
-    border-color:#00bfff;
-    transform:translateY(-3px);
+.search{
+margin:25px auto;
+max-width:600px;
 }
 
-.channel.active{
-    border-color:#00bfff;
-    box-shadow:0 0 18px rgba(0,191,255,.3);
+.search input{
+width:100%;
+padding:17px 20px;
+border-radius:30px;
+border:1px solid #333;
+background:#151515;
+color:white;
+outline:none;
+font-size:16px;
 }
 
-.icon{
-    font-size:35px;
+.section-title{
+margin-top:35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.name{
-    margin-top:8px;
-    font-weight:bold;
-    font-size:17px;
+.section-title h2{
+margin:0;
 }
 
-.badge{
-    display:inline-block;
-
-    margin-top:9px;
-
-    background:red;
-
-    padding:5px 9px;
-
-    border-radius:5px;
-
-    font-size:10px;
+.music-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:18px;
+margin-top:20px;
 }
 
-/* MOBILE */
+.card{
+background:#121212;
+border-radius:15px;
+padding:12px;
+cursor:pointer;
+transition:.25s;
+}
 
-@media(max-width:600px){
+.card:hover{
+transform:translateY(-5px);
+background:#1d1d1d;
+}
 
-    header h1{
-        font-size:25px;
-    }
+.card img{
+width:100%;
+aspect-ratio:1;
+object-fit:cover;
+border-radius:10px;
+}
 
-    .container{
-        padding:8px;
-    }
+.card h3{
+font-size:15px;
+margin:12px 0 5px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
 
-    .tv{
-        border-width:6px;
-        padding:7px;
-        border-radius:20px;
-    }
+.card p{
+font-size:13px;
+color:#888;
+margin:0;
+}
 
-    .channels{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
+.bottom-player{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:rgba(15,15,15,.96);
+border-top:1px solid #333;
+backdrop-filter:blur(20px);
+padding:12px 20px;
+z-index:20;
+}
 
-    .title{
-        font-size:23px;
-    }
+.player{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:18px;
+}
 
-    .name{
-        font-size:15px;
-    }
+.now{
+width:220px;
+display:flex;
+align-items:center;
+gap:10px;
+}
 
-    .live{
-        margin-left:-160px;
-    }
+.now img{
+width:55px;
+height:55px;
+border-radius:8px;
+object-fit:cover;
+}
+
+.now div{
+overflow:hidden;
+}
+
+.now strong{
+display:block;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.now small{
+color:#888;
+}
+
+.controls{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.controls button{
+border:0;
+background:#222;
+color:#fff;
+width:42px;
+height:42px;
+border-radius:50%;
+cursor:pointer;
+font-size:17px;
+}
+
+.controls button:hover{
+background:#ff0757;
+}
+
+.play{
+background:#ff0757!important;
+}
+
+.bar{
+flex:1;
+}
+
+#progress{
+width:100%;
+accent-color:#ff0757;
+}
+
+.volume{
+width:120px;
+}
+
+#volume{
+width:100%;
+accent-color:#ff0757;
+}
+
+@media(max-width:700px){
+
+header{
+padding:18px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.music-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.player{
+gap:8px;
+}
+
+.now{
+width:auto;
+flex:1;
+}
+
+.controls button{
+width:38px;
+height:38px;
+}
+
+.volume{
+display:none;
+}
 
 }
 
+@media(max-width:450px){
+
+.now img{
+width:45px;
+height:45px;
+}
+
+.now{
+font-size:12px;
+}
+
+.bar{
+display:none;
+}
+
+}
 </style>
 </head>
 
 <body>
 
 <header>
-
-<h1>🇲🇾 MY TV MALAYSIA</h1>
-
-<p>Live TV • Sumber Rasmi</p>
-
+<div class="logo">
+🎵 Datu <span>Pagah</span> Muzik
+</div>
 </header>
-
 
 <div class="container">
 
+<section class="hero">
 
-<!-- TV FRAME -->
+<h1>Datu Pagah Muzik</h1>
 
-<div class="tv">
+<p>Music for every moment.</p>
 
-<div class="screen">
+<div class="search">
 
-<div class="screen-content">
+<input
+id="search"
+placeholder="🔎 Cari lagu atau artis..."
+>
 
-<h2>📺 MY TV</h2>
+</div>
 
-<p id="screenText">
-Pilih saluran untuk menonton.
-</p>
+</section>
 
-<a
-id="watchButton"
-class="watch"
-href="#"
-target="_self"
-style="display:none;">
+<div class="section-title">
+<h2>🔥 Muzik Pilihan</h2>
+</div>
 
-▶ TONTON SEKARANG
+<div id="music" class="music-grid">
 
-</a>
+<p>Memuatkan muzik...</p>
 
 </div>
 
 </div>
 
 
-<div
-class="channel-name"
-id="channelName">
+<div class="bottom-player">
 
-🇲🇾 PILIH CHANNEL
+<div class="player">
 
-</div>
+<div class="now">
 
+<img id="nowCover"
+src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=200"
+>
 
-<div class="tv-footer">
+<div>
 
-<div class="logo">
-MY <span>TV</span>
-</div>
+<strong id="nowTitle">
+Pilih lagu
+</strong>
 
-<div class="power"></div>
+<small id="nowArtist">
+Datu Pagah Muzik
+</small>
 
-</div>
-
-</div>
-
-
-<!-- CHANNEL TITLE -->
-
-<div class="title">
-📺 Saluran Malaysia
-</div>
-
-
-<div class="channels">
-
-
-<!-- TV1 -->
-
-<div
-class="channel"
-onclick="openTV(
-'TV1',
-'https://rtmklik.rtm.gov.my/live/khas/tv1',
-this
-)">
-
-<div class="icon">
-🇲🇾
-</div>
-
-<div class="name">
-TV1
-</div>
-
-<div class="badge">
-LIVE
 </div>
 
 </div>
 
 
-<!-- TV2 -->
+<div class="controls">
 
-<div
-class="channel"
-onclick="openTV(
-'TV2',
-'https://rtmklik.rtm.gov.my/live/khas/tv2',
-this
-)">
+<button onclick="previous()">⏮</button>
 
-<div class="icon">
-🇲🇾
-</div>
+<button
+id="playButton"
+class="play"
+onclick="togglePlay()"
+>
+▶
+</button>
 
-<div class="name">
-TV2
-</div>
-
-<div class="badge">
-LIVE
-</div>
+<button onclick="next()">⏭</button>
 
 </div>
 
 
-<!-- OKEY -->
+<div class="bar">
 
-<div
-class="channel"
-onclick="openTV(
-'TV OKEY',
-'https://rtmklik.rtm.gov.my/live/khas/okey',
-this
-)">
-
-<div class="icon">
-🇲🇾
-</div>
-
-<div class="name">
-TV OKEY
-</div>
-
-<div class="badge">
-LIVE
-</div>
+<input
+type="range"
+id="progress"
+value="0"
+min="0"
+max="100"
+>
 
 </div>
 
 
-<!-- BERITA -->
+<div class="volume">
 
-<div
-class="channel"
-onclick="openTV(
-'BERITA RTM',
-'https://rtmklik.rtm.gov.my/live/tv/berita',
-this
-)">
+<input
+type="range"
+id="volume"
+min="0"
+max="1"
+step="0.01"
+value="1"
+>
 
-<div class="icon">
-📰
 </div>
 
-<div class="name">
-BERITA RTM
-</div>
-
-<div class="badge">
-LIVE
 </div>
 
 </div>
 
 
-<!-- SUKAN -->
-
-<div
-class="channel"
-onclick="openTV(
-'SUKAN RTM',
-'https://rtmklik.rtm.gov.my/live/tv/sukan',
-this
-)">
-
-<div class="icon">
-⚽
-</div>
-
-<div class="name">
-SUKAN RTM
-</div>
-
-<div class="badge">
-LIVE
-</div>
-
-</div>
-
-
-<!-- TV6 -->
-
-<div
-class="channel"
-onclick="openTV(
-'TV6',
-'https://rtmklik.rtm.gov.my/live/tv/tv6',
-this
-)">
-
-<div class="icon">
-📺
-</div>
-
-<div class="name">
-TV6
-</div>
-
-<div class="badge">
-LIVE
-</div>
-
-</div>
-
-
-<!-- TV3 -->
-
-<div
-class="channel"
-onclick="openTV(
-'TV3',
-'https://browse.tonton.com.my/live',
-this
-)">
-
-<div class="icon">
-📺
-</div>
-
-<div class="name">
-TV3
-</div>
-
-<div class="badge">
-LIVE
-</div>
-
-</div>
-
-
-<!-- NTV7 -->
-
-<div
-class="channel"
-onclick="openTV(
-'NTV7',
-'https://browse.tonton.com.my/live',
-this
-)">
-
-<div class="icon">
-📺
-</div>
-
-<div class="name">
-NTV7
-</div>
-
-<div class="badge">
-LIVE
-</div>
-
-</div>
-
-
-<!-- 8TV -->
-
-<div
-class="channel"
-onclick="openTV(
-'8TV',
-'https://browse.tonton.com.my/live/8tv',
-this
-)">
-
-<div class="icon">
-📺
-</div>
-
-<div class="name">
-8TV
-</div>
-
-<div class="badge">
-LIVE
-</div>
-
-</div>
-
-
-<!-- TV9 -->
-
-<div
-class="channel"
-onclick="openTV(
-'TV9',
-'https://browse.tonton.com.my/live',
-this
-)">
-
-<div class="icon">
-📺
-</div>
-
-<div class="name">
-TV9
-</div>
-
-<div class="badge">
-LIVE
-</div>
-
-</div>
-
-
-</div>
-
-</div>
+<audio id="audio"></audio>
 
 
 <script>
 
-function openTV(name,url,button){
-
-/* tukar nama */
-
-document.getElementById(
-"channelName"
-).innerHTML =
-"🇲🇾 " + name;
-
-
-/* tukar tulisan */
-
-document.getElementById(
-"screenText"
-).innerHTML =
-"Anda sedang membuka siaran rasmi " +
-name;
-
-
-/* tampilkan button */
-
-let btn =
-document.getElementById(
-"watchButton"
-);
-
-btn.style.display="inline-block";
-
-btn.href=url;
-
-
-/* active */
-
-document
-.querySelectorAll(".channel")
-.forEach(function(item){
-
-item.classList.remove("active");
-
-});
-
-button.classList.add("active");
-
-
-/* buka player rasmi */
-
-window.location.href=url;
-
-}
-
-</script>
+/* =====================================
+  
