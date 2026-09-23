@@ -8,233 +8,295 @@
 <title>Dibuat Rindu ❤️</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #000;
-    font-family: Georgia, "Times New Roman", serif;
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Georgia,"Times New Roman",serif;
 }
 
-/* =========================
+/* ==================================================
    VIDEO
-========================= */
+================================================== */
 
-#video {
-    position: fixed;
-    inset: 0;
+#video{
+    position:fixed;
+    inset:0;
 
-    width: 100%;
-    height: 100%;
+    width:100%;
+    height:100%;
 
-    object-fit: cover;
+    object-fit:cover;
 
-    z-index: 1;
+    z-index:1;
 
-    background: #000;
+    background:#000;
 }
 
-/* =========================
-   OVERLAY
-========================= */
 
-.overlay {
-    position: fixed;
-    inset: 0;
+/* ==================================================
+   LAPISAN GELAP
+================================================== */
 
-    z-index: 2;
+.overlay{
+    position:fixed;
+    inset:0;
 
-    pointer-events: none;
+    z-index:2;
+
+    pointer-events:none;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255, 80, 130, 0.04),
-            rgba(0, 0, 0, 0.20) 45%,
-            rgba(0, 0, 0, 0.72) 100%
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.20),
+            rgba(0,0,0,.08) 45%,
+            rgba(0,0,0,.72)
         );
 }
 
-/* =========================
-   GLOW
-========================= */
 
-.glow {
-    position: fixed;
-    inset: 0;
+/* ==================================================
+   GLOW ROMANTIS
+================================================== */
 
-    z-index: 3;
+.glow{
+    position:fixed;
+    inset:-10%;
 
-    pointer-events: none;
+    z-index:3;
+
+    pointer-events:none;
 
     background:
         radial-gradient(
-            circle at 50% 50%,
-            rgba(255, 120, 170, 0.15),
-            transparent 48%
+            circle at 50% 45%,
+            rgba(255,90,150,.18),
+            transparent 42%
         );
 
-    animation: glow 4s ease-in-out infinite;
+    animation:glowMove 5s ease-in-out infinite;
 }
 
-@keyframes glow {
+@keyframes glowMove{
 
-    0%,
-    100% {
-        opacity: .45;
-        transform: scale(1);
+    0%,100%{
+        opacity:.45;
+        transform:scale(1);
     }
 
-    50% {
-        opacity: 1;
-        transform: scale(1.08);
+    50%{
+        opacity:1;
+        transform:scale(1.08);
     }
 }
 
-/* =========================
+
+/* ==================================================
    TEKS
-========================= */
+================================================== */
 
-.content {
-    position: fixed;
-    inset: 0;
+.content{
+    position:fixed;
+    inset:0;
 
-    z-index: 10;
+    z-index:10;
 
-    display: flex;
-    flex-direction: column;
+    display:flex;
+    flex-direction:column;
 
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
+    align-items:center;
 
-    text-align: center;
+    text-align:center;
 
-    color: white;
+    padding:25px;
 
-    padding: 25px;
+    color:white;
 
-    pointer-events: none;
+    pointer-events:none;
 }
 
-.small {
-    font-family: Arial, sans-serif;
+.small{
+    font-family:Arial,sans-serif;
 
-    font-size: 12px;
+    font-size:12px;
 
-    letter-spacing: 6px;
+    letter-spacing:6px;
 
-    text-transform: uppercase;
+    text-transform:uppercase;
 
-    opacity: .9;
+    opacity:.9;
 
-    margin-bottom: 16px;
+    margin-bottom:15px;
 
     text-shadow:
-        0 0 10px rgba(255, 120, 170, .8);
+        0 0 12px rgba(255,130,180,.9);
 }
 
-h1 {
-    font-size: clamp(48px, 10vw, 100px);
+h1{
+    font-size:clamp(50px,11vw,110px);
 
-    font-weight: normal;
+    font-weight:normal;
 
-    letter-spacing: 4px;
+    letter-spacing:5px;
+
+    color:#fff;
 
     text-shadow:
-        0 0 10px rgba(255, 255, 255, .8),
-        0 0 30px rgba(255, 100, 160, .8),
-        0 0 70px rgba(255, 50, 130, .6);
+        0 0 10px rgba(255,255,255,.9),
+        0 0 30px rgba(255,100,160,.9),
+        0 0 70px rgba(255,50,130,.7);
 
-    animation: title 3s ease-in-out infinite;
+    animation:titlePulse 3s ease-in-out infinite;
 }
 
-.subtitle {
-    margin-top: 22px;
+.subtitle{
+    margin-top:23px;
 
-    max-width: 800px;
+    max-width:850px;
 
-    font-size: clamp(15px, 3vw, 24px);
+    font-size:clamp(15px,3vw,25px);
 
-    letter-spacing: 1.5px;
+    line-height:1.85;
 
-    line-height: 1.8;
+    letter-spacing:1px;
+
+    color:rgba(255,255,255,.96);
 
     text-shadow:
         0 2px 12px #000,
-        0 0 20px rgba(255, 100, 150, .6);
+        0 0 22px rgba(255,80,140,.65);
+
+    animation:textAppear 2s ease forwards;
 }
 
-@keyframes title {
+@keyframes titlePulse{
 
-    0%,
-    100% {
-        transform: scale(1);
+    0%,100%{
+        transform:scale(1);
     }
 
-    50% {
-        transform: scale(1.025);
+    50%{
+        transform:scale(1.025);
     }
 }
 
-/* =========================
-   BUNGA / KELOPAK
-========================= */
+@keyframes textAppear{
 
-#flowers {
-    position: fixed;
-    inset: 0;
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
 
-    width: 100%;
-    height: 100%;
-
-    z-index: 30;
-
-    overflow: hidden;
-
-    pointer-events: none;
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-/*
-   Setiap bunga menggunakan 5 kelopak.
-   Ini membuat bunga benar-benar kelihatan,
-   bukan hanya bergantung kepada emoji.
-*/
 
-.flower {
-    position: absolute;
+/* ==================================================
+   HATI
+================================================== */
 
-    top: -80px;
+.heart{
+    margin-top:25px;
 
-    width: 24px;
-    height: 24px;
+    font-family:Arial,sans-serif;
 
-    opacity: 0;
+    font-size:34px;
+
+    color:#ff609c;
+
+    text-shadow:
+        0 0 10px #ff4f91,
+        0 0 30px #ff4f91,
+        0 0 55px rgba(255,50,130,.8);
+
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    20%{
+        transform:scale(1.22);
+    }
+
+    40%{
+        transform:scale(1);
+    }
+
+    60%{
+        transform:scale(1.12);
+    }
+}
+
+
+/* ==================================================
+   CONTAINER BUNGA
+================================================== */
+
+#flowers{
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:30;
+
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+
+/* ==================================================
+   BUNGA KECIL
+================================================== */
+
+.flower{
+    position:absolute;
+
+    top:-80px;
+
+    width:26px;
+    height:26px;
+
+    opacity:0;
 
     animation:
         flowerFall var(--duration) linear forwards;
 
     filter:
-        drop-shadow(0 0 5px rgba(255, 120, 170, .9))
-        drop-shadow(0 0 12px rgba(255, 60, 130, .5));
+        drop-shadow(0 0 5px rgba(255,150,190,.9))
+        drop-shadow(0 0 15px rgba(255,50,130,.55));
 }
 
-/* Kelopak bunga */
 
-.flower .petal {
-    position: absolute;
+/* Kelopak */
 
-    width: 12px;
-    height: 18px;
+.flower .petal{
+    position:absolute;
 
-    left: 6px;
-    top: 2px;
+    width:13px;
+    height:19px;
+
+    left:6.5px;
+    top:2px;
 
     border-radius:
         70% 70% 45% 45%;
@@ -243,126 +305,131 @@ h1 {
         radial-gradient(
             circle at 50% 15%,
             #ffffff 0%,
-            #ffd8e6 18%,
-            #ff9cbd 42%,
-            #ff4b8c 72%,
-            #b91858 100%
+            #ffdce8 18%,
+            #ff9abd 43%,
+            #ff4d8e 72%,
+            #b81755 100%
         );
 
-    transform-origin: 50% 100%;
+    transform-origin:
+        50% 100%;
 }
 
-/* 5 kelopak */
 
-.flower .petal:nth-child(1) {
-    transform: rotate(0deg);
+/* Lima kelopak */
+
+.flower .petal:nth-child(1){
+    transform:rotate(0deg);
 }
 
-.flower .petal:nth-child(2) {
-    transform: rotate(72deg);
+.flower .petal:nth-child(2){
+    transform:rotate(72deg);
 }
 
-.flower .petal:nth-child(3) {
-    transform: rotate(144deg);
+.flower .petal:nth-child(3){
+    transform:rotate(144deg);
 }
 
-.flower .petal:nth-child(4) {
-    transform: rotate(216deg);
+.flower .petal:nth-child(4){
+    transform:rotate(216deg);
 }
 
-.flower .petal:nth-child(5) {
-    transform: rotate(288deg);
+.flower .petal:nth-child(5){
+    transform:rotate(288deg);
 }
 
-/* Tengah bunga */
 
-.flower .flower-center {
-    position: absolute;
+/* Tengah */
 
-    width: 7px;
-    height: 7px;
+.flower .flower-center{
+    position:absolute;
 
-    left: 8.5px;
-    top: 8.5px;
+    width:7px;
+    height:7px;
 
-    border-radius: 50%;
+    left:9.5px;
+    top:9px;
+
+    border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            #fffbd0,
+            #fffbd5,
             #ffd447 55%,
-            #d78900
+            #d88900
         );
 
-    z-index: 10;
+    z-index:10;
 
     box-shadow:
-        0 0 5px #fff,
+        0 0 5px white,
         0 0 12px #ffd35a;
 }
 
-/* =========================
+
+/* ==================================================
    ANIMASI BUNGA
-========================= */
+================================================== */
 
-@keyframes flowerFall {
+@keyframes flowerFall{
 
-    0% {
+    0%{
         transform:
-            translate3d(0, -100px, 0)
+            translate3d(0,-100px,0)
             rotate(0deg)
             scale(.5);
 
-        opacity: 0;
+        opacity:0;
     }
 
-    8% {
-        opacity: 1;
+    8%{
+        opacity:1;
     }
 
-    50% {
-        opacity: 1;
+    50%{
+        opacity:1;
     }
 
-    100% {
+    100%{
         transform:
-            translate3d(var(--moveX), 115vh, 0)
+            translate3d(var(--moveX),120vh,0)
             rotate(720deg)
             scale(var(--scale));
 
-        opacity: .15;
+        opacity:.12;
     }
 }
 
-/* =========================
+
+/* ==================================================
    BUNGA BESAR
-========================= */
+================================================== */
 
-.big-flower {
-    position: absolute;
+.big-flower{
+    position:absolute;
 
-    top: -120px;
+    top:-120px;
 
-    width: 80px;
-    height: 80px;
+    width:90px;
+    height:90px;
 
     animation:
-        bigFlowerFall var(--duration) linear forwards;
+        bigFall var(--duration) linear forwards;
 
     filter:
-        drop-shadow(0 0 10px rgba(255, 120, 170, .9))
-        drop-shadow(0 0 25px rgba(255, 50, 130, .7));
+        drop-shadow(0 0 12px rgba(255,120,170,.9))
+        drop-shadow(0 0 30px rgba(255,50,130,.65));
 }
 
-.big-flower .petal {
-    position: absolute;
+.big-flower .petal{
+    position:absolute;
 
-    width: 32px;
-    height: 48px;
+    width:34px;
+    height:50px;
 
-    left: 24px;
-    top: 10px;
+    left:28px;
+    top:10px;
 
     border-radius:
         50% 50% 45% 45%;
@@ -371,30 +438,720 @@ h1 {
         radial-gradient(
             circle at 50% 15%,
             #fff,
-            #ffd1e0 20%,
-            #ff76a5 48%,
+            #ffd0df 20%,
+            #ff79a9 48%,
             #ec3477 75%,
-            #a8124e 100%
+            #a8114d
         );
 
-    transform-origin: 50% 100%;
+    transform-origin:
+        50% 100%;
 }
 
-.big-flower .petal:nth-child(1) {
-    transform: rotate(0deg);
+.big-flower .petal:nth-child(1){
+    transform:rotate(0deg);
 }
 
-.big-flower .petal:nth-child(2) {
-    transform: rotate(72deg);
+.big-flower .petal:nth-child(2){
+    transform:rotate(72deg);
 }
 
-.big-flower .petal:nth-child(3) {
-    transform: rotate(144deg);
+.big-flower .petal:nth-child(3){
+    transform:rotate(144deg);
 }
 
-.big-flower .petal:nth-child(4) {
-    transform: rotate(216deg);
+.big-flower .petal:nth-child(4){
+    transform:rotate(216deg);
 }
 
-.big-flower .petal:nth-child(5) {
+.big-flower .petal:nth-child(5){
+    transform:rotate(288deg);
+}
+
+.big-flower .center{
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    left:35px;
+    top:35px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffdd2,
+            #ffd43d 55%,
+            #d77d00
+        );
+
+    z-index:10;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 22px #ffd35a;
+}
+
+@keyframes bigFall{
+
+    0%{
+        transform:
+            translate3d(0,-130px,0)
+            rotate(0deg)
+            scale(.3);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    55%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translate3d(var(--moveX),125vh,0)
+            rotate(720deg)
+            scale(1);
+
+        opacity:.08;
+    }
+}
+
+
+/* ==================================================
+   CAHAYA BERKILAU
+================================================== */
+
+.sparkle{
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 7px white,
+        0 0 17px #ff8eb5;
+
+    animation:
+        sparkleMove var(--duration) linear forwards;
+}
+
+@keyframes sparkleMove{
+
+    0%{
+        transform:
+            translateY(110vh)
+            scale(.2);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:.9;
+    }
+
+    80%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:
+            translateY(-20vh)
+            scale(1);
+
+        opacity:0;
+    }
+}
+
+
+/* ==================================================
+   TOMBOL PLAY
+================================================== */
+
+#playButton{
+    position:fixed;
+
+    left:50%;
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    z-index:100;
+
+    border:1px solid rgba(255,210,225,.8);
+
+    border-radius:50px;
+
+    padding:14px 27px;
+
+    color:white;
+
+    background:
+        rgba(0,0,0,.45);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 15px rgba(255,80,140,.5),
+        inset 0 0 15px rgba(255,100,160,.15);
+
+    transition:
+        opacity .5s ease,
+        transform .3s ease,
+        background .3s ease;
+}
+
+#playButton:hover{
+    background:
+        rgba(255,60,130,.35);
+
     transform:
+        translateX(-50%)
+        scale(1.06);
+}
+
+#playButton.hidden{
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+}
+
+
+/* ==================================================
+   STATUS SUARA
+================================================== */
+
+#soundStatus{
+    position:fixed;
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:100;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    color:white;
+
+    background:
+        rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity .5s ease;
+}
+
+#soundStatus.show{
+    opacity:.8;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:600px){
+
+    .content{
+        padding:20px;
+    }
+
+    .small{
+        font-size:9px;
+        letter-spacing:4px;
+    }
+
+    h1{
+        font-size:54px;
+        letter-spacing:3px;
+    }
+
+    .subtitle{
+        font-size:16px;
+        line-height:1.8;
+        letter-spacing:.3px;
+    }
+
+    .heart{
+        font-size:29px;
+    }
+
+    #playButton{
+        bottom:22px;
+        padding:13px 24px;
+        font-size:11px;
+    }
+
+    .flower{
+        transform:scale(.9);
+    }
+
+    .big-flower{
+        transform:scale(.75);
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- ==================================================
+     VIDEO
+================================================== -->
+
+<video
+    id="video"
+    autoplay
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto">
+
+    <source src="video.mp4" type="video/mp4">
+
+</video>
+
+
+<!-- ==================================================
+     EFFECT
+================================================== -->
+
+<div class="overlay"></div>
+
+<div class="glow"></div>
+
+<div id="flowers"></div>
+
+
+<!-- ==================================================
+     TEKS CINTA
+================================================== -->
+
+<div class="content">
+
+    <div class="small">
+        Sebuah Perasaan
+    </div>
+
+    <h1>Rindu</h1>
+
+    <div class="subtitle">
+        Dibuat rindu oleh perasaan,
+        <br>
+        Dilarang bertemu oleh keadaan,
+        <br>
+        dan dilarang bersatu oleh kenyataan.
+    </div>
+
+    <div class="heart">
+        ♥
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     STATUS
+================================================== -->
+
+<div id="soundStatus">
+    Mencuba memainkan video...
+</div>
+
+
+<!-- ==================================================
+     PLAY VIDEO
+================================================== -->
+
+<button id="playButton">
+    ▶ PLAY VIDEO
+</button>
+
+
+<script>
+
+/* ==================================================
+   VIDEO
+================================================== */
+
+const video =
+    document.getElementById("video");
+
+const playButton =
+    document.getElementById("playButton");
+
+const soundStatus =
+    document.getElementById("soundStatus");
+
+
+/*
+   Pertama cuba autoplay dengan suara.
+*/
+
+async function startVideo(){
+
+    try{
+
+        video.muted = false;
+
+        await video.play();
+
+        /*
+           Berjaya autoplay dengan suara.
+        */
+
+        playButton.classList.add("hidden");
+
+    }catch(error){
+
+        /*
+           Browser menyekat autoplay bersuara.
+           Kita tetap jalankan video tanpa suara.
+        */
+
+        video.muted = true;
+
+        try{
+            await video.play();
+        }catch(e){}
+
+        playButton.classList.remove("hidden");
+
+    }
+}
+
+
+/*
+   Bila tombol ditekan,
+   hidupkan suara.
+*/
+
+playButton.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            video.muted = false;
+
+            await video.play();
+
+            playButton.classList.add("hidden");
+
+        }catch(error){
+
+            console.log(error);
+
+        }
+
+    }
+);
+
+
+/*
+   Cuba secepat mungkin.
+*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    startVideo
+);
+
+window.addEventListener(
+    "load",
+    startVideo
+);
+
+
+/* ==================================================
+   BUNGA KECIL
+================================================== */
+
+const container =
+    document.getElementById("flowers");
+
+
+function createFlower(){
+
+    const flower =
+        document.createElement("div");
+
+    flower.className =
+        "flower";
+
+
+    /* Lima kelopak */
+
+    for(let i=0;i<5;i++){
+
+        const petal =
+            document.createElement("div");
+
+        petal.className =
+            "petal";
+
+        flower.appendChild(petal);
+
+    }
+
+
+    /* Tengah bunga */
+
+    const center =
+        document.createElement("div");
+
+    center.className =
+        "flower-center";
+
+    flower.appendChild(center);
+
+
+    /* Posisi horizontal */
+
+    flower.style.left =
+        Math.random() * 100 + "%";
+
+
+    /* Saiz */
+
+    const scale =
+        Math.random() * .8 + .6;
+
+    flower.style.setProperty(
+        "--scale",
+        scale.toFixed(2)
+    );
+
+
+    /* Gerakan kiri kanan */
+
+    const moveX =
+        Math.floor(
+            Math.random() * 320 - 160
+        );
+
+    flower.style.setProperty(
+        "--moveX",
+        moveX + "px"
+    );
+
+
+    /* Kelajuan */
+
+    const duration =
+        Math.random() * 5 + 6;
+
+    flower.style.setProperty(
+        "--duration",
+        duration + "s"
+    );
+
+
+    container.appendChild(
+        flower
+    );
+
+
+    /* Buang selepas animasi */
+
+    setTimeout(
+        function(){
+
+            flower.remove();
+
+        },
+        (duration + 1) * 1000
+    );
+}
+
+
+/* ==================================================
+   BUNGA BESAR
+================================================== */
+
+function createBigFlower(){
+
+    const flower =
+        document.createElement("div");
+
+    flower.className =
+        "big-flower";
+
+
+    for(let i=0;i<5;i++){
+
+        const petal =
+            document.createElement("div");
+
+        petal.className =
+            "petal";
+
+        flower.appendChild(petal);
+
+    }
+
+
+    const center =
+        document.createElement("div");
+
+    center.className =
+        "center";
+
+    flower.appendChild(center);
+
+
+    flower.style.left =
+        Math.random() * 100 + "%";
+
+
+    flower.style.setProperty(
+        "--moveX",
+        (Math.random() * 400 - 200) + "px"
+    );
+
+
+    const duration =
+        Math.random() * 5 + 8;
+
+    flower.style.setProperty(
+        "--duration",
+        duration + "s"
+    );
+
+
+    container.appendChild(
+        flower
+    );
+
+
+    setTimeout(
+        function(){
+
+            flower.remove();
+
+        },
+        (duration + 1) * 1000
+    );
+}
+
+
+/* ==================================================
+   BANYAK BUNGA DARI AWAL
+================================================== */
+
+for(let i=0;i<80;i++){
+
+    setTimeout(
+        createFlower,
+        i * 60
+    );
+
+}
+
+
+/* Bunga kecil terus jatuh */
+
+setInterval(
+    createFlower,
+    150
+);
+
+
+/* Bunga besar */
+
+setInterval(
+    createBigFlower,
+    900
+);
+
+
+/* ==================================================
+   PARTIKEL CAHAYA
+================================================== */
+
+function createSparkle(){
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+
+    sparkle.style.left =
+        Math.random() * 100 + "%";
+
+
+    const duration =
+        Math.random() * 5 + 5;
+
+    sparkle.style.setProperty(
+        "--duration",
+        duration + "s"
+    );
+
+
+    container.appendChild(
+        sparkle
+    );
+
+
+    setTimeout(
+        function(){
+
+            sparkle.remove();
+
+        },
+        (duration + 1) * 1000
+    );
+}
+
+
+setInterval(
+    createSparkle,
+    280
+);
+
+</script>
+
+</body>
+</html>
