@@ -3,89 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
 
 <title>Dibuat Rindu ❤️</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#000;
-}
-
-/* =========================
-   VIDEO AUTO PLAY
-========================= */
-
-#video{
-    position:fixed;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    z-index:1;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 /* =========================
-   DARK CINEMATIC
+   VIDEO
 ========================= */
 
-.overlay{
-    position:fixed;
-    inset:0;
+#video {
+    position: fixed;
+    inset: 0;
 
-    z-index:2;
-    pointer-events:none;
+    width: 100%;
+    height: 100%;
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.25),
-            rgba(0,0,0,.15),
-            rgba(0,0,0,.65)
-        );
+    object-fit: cover;
+
+    z-index: 1;
+
+    background: #000;
 }
 
-/* Cahaya lembut */
+/* =========================
+   OVERLAY
+========================= */
 
-.glow{
-    position:fixed;
-    inset:0;
+.overlay {
+    position: fixed;
+    inset: 0;
 
-    z-index:3;
-    pointer-events:none;
+    z-index: 2;
+
+    pointer-events: none;
 
     background:
         radial-gradient(
             circle at center,
-            rgba(255,80,140,.18),
-            transparent 45%
+            rgba(255, 80, 130, 0.04),
+            rgba(0, 0, 0, 0.20) 45%,
+            rgba(0, 0, 0, 0.72) 100%
         );
-
-    animation:
-        glowMove 5s ease-in-out infinite;
 }
 
-@keyframes glowMove{
+/* =========================
+   GLOW
+========================= */
 
-    0%,100%{
-        opacity:.45;
-        transform:scale(1);
+.glow {
+    position: fixed;
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 120, 170, 0.15),
+            transparent 48%
+        );
+
+    animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: .45;
+        transform: scale(1);
     }
 
-    50%{
-        opacity:1;
-        transform:scale(1.08);
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
     }
 }
 
@@ -93,732 +102,299 @@ html,body{
    TEKS
 ========================= */
 
-.content{
-    position:fixed;
-    inset:0;
+.content {
+    position: fixed;
+    inset: 0;
 
-    z-index:8;
+    z-index: 10;
 
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 
-    text-align:center;
+    text-align: center;
 
-    padding:25px;
+    color: white;
 
-    color:white;
+    padding: 25px;
 
-    pointer-events:none;
+    pointer-events: none;
 }
 
-.small{
-    font-family:Arial,sans-serif;
+.small {
+    font-family: Arial, sans-serif;
 
-    font-size:12px;
+    font-size: 12px;
 
-    letter-spacing:7px;
+    letter-spacing: 6px;
 
-    text-transform:uppercase;
+    text-transform: uppercase;
 
-    opacity:.85;
+    opacity: .9;
 
-    margin-bottom:20px;
+    margin-bottom: 16px;
 
     text-shadow:
-        0 0 15px rgba(255,120,170,.8);
+        0 0 10px rgba(255, 120, 170, .8);
 }
 
-h1{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+h1 {
+    font-size: clamp(48px, 10vw, 100px);
 
-    font-size:
-        clamp(50px,12vw,110px);
+    font-weight: normal;
 
-    font-weight:normal;
-
-    letter-spacing:5px;
+    letter-spacing: 4px;
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 30px rgba(255,80,150,.9),
-        0 0 70px rgba(255,30,120,.7);
+        0 0 10px rgba(255, 255, 255, .8),
+        0 0 30px rgba(255, 100, 160, .8),
+        0 0 70px rgba(255, 50, 130, .6);
 
-    animation:
-        titleGlow 3s ease-in-out infinite;
+    animation: title 3s ease-in-out infinite;
 }
 
-.subtitle{
-    margin-top:25px;
+.subtitle {
+    margin-top: 22px;
 
-    max-width:800px;
+    max-width: 800px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-size: clamp(15px, 3vw, 24px);
 
-    font-size:
-        clamp(16px,3vw,25px);
+    letter-spacing: 1.5px;
 
-    line-height:1.8;
-
-    letter-spacing:1px;
+    line-height: 1.8;
 
     text-shadow:
-        0 2px 10px #000,
-        0 0 20px rgba(255,80,140,.7);
+        0 2px 12px #000,
+        0 0 20px rgba(255, 100, 150, .6);
 }
 
-.heart{
-    margin-top:25px;
+@keyframes title {
 
-    font-family:Arial,sans-serif;
-
-    font-size:34px;
-
-    color:#ff5b99;
-
-    text-shadow:
-        0 0 10px #ff4f91,
-        0 0 30px #ff4f91,
-        0 0 60px #ff4f91;
-
-    animation:
-        heartbeat 1.4s infinite;
-}
-
-@keyframes titleGlow{
-
-    0%,100%{
-        transform:scale(1);
+    0%,
+    100% {
+        transform: scale(1);
     }
 
-    50%{
-        transform:scale(1.025);
-    }
-}
-
-@keyframes heartbeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    20%{
-        transform:scale(1.2);
-    }
-
-    40%{
-        transform:scale(1);
-    }
-
-    60%{
-        transform:scale(1.12);
+    50% {
+        transform: scale(1.025);
     }
 }
 
 /* =========================
-   BUNGA
+   BUNGA / KELOPAK
 ========================= */
 
-#flowers{
-    position:fixed;
-    inset:0;
+#flowers {
+    position: fixed;
+    inset: 0;
 
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 
-    z-index:20;
+    z-index: 30;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    pointer-events:none;
+    pointer-events: none;
 }
 
-/* Kelopak */
+/*
+   Setiap bunga menggunakan 5 kelopak.
+   Ini membuat bunga benar-benar kelihatan,
+   bukan hanya bergantung kepada emoji.
+*/
 
-.flower{
-    position:absolute;
+.flower {
+    position: absolute;
 
-    top:-60px;
+    top: -80px;
 
-    width:18px;
-    height:18px;
+    width: 24px;
+    height: 24px;
 
-    border-radius:
-        80% 20% 80% 20%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #fff,
-            #ffd2e1 18%,
-            #ff8db5 45%,
-            #ff3f82 75%,
-            #bd1556
-        );
-
-    box-shadow:
-        0 0 6px rgba(255,180,210,.9),
-        0 0 18px rgba(255,60,130,.8);
-
-    opacity:.95;
+    opacity: 0;
 
     animation:
-        falling var(--duration) linear forwards;
-}
-
-/* Kelopak kedua */
-
-.flower::before{
-    content:"";
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    left:7px;
-    top:0;
-
-    border-radius:
-        80% 20% 80% 20%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd9e7,
-            #ff4f91
-        );
-
-    transform:rotate(55deg);
-
-    opacity:.8;
-}
-
-/* Titik tengah */
-
-.flower::after{
-    content:"";
-
-    position:absolute;
-
-    width:4px;
-    height:4px;
-
-    border-radius:50%;
-
-    left:7px;
-    top:7px;
-
-    background:#fff5c7;
-
-    box-shadow:
-        0 0 6px white,
-        0 0 12px #ffc1d8;
-}
-
-@keyframes falling{
-
-    0%{
-        transform:
-            translate3d(0,-80px,0)
-            rotate(0deg)
-            scale(.6);
-
-        opacity:0;
-    }
-
-    8%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translate3d(var(--x),115vh,0)
-            rotate(720deg)
-            scale(var(--scale));
-
-        opacity:.15;
-    }
-}
-
-/* =========================
-   BUNGA BESAR
-========================= */
-
-.bigFlower{
-    position:absolute;
-
-    top:-100px;
-
-    width:70px;
-    height:70px;
-
-    animation:
-        bigFalling var(--bigDuration) linear forwards;
+        flowerFall var(--duration) linear forwards;
 
     filter:
-        drop-shadow(0 0 12px rgba(255,100,160,.9))
-        drop-shadow(0 0 30px rgba(255,60,130,.6));
+        drop-shadow(0 0 5px rgba(255, 120, 170, .9))
+        drop-shadow(0 0 12px rgba(255, 60, 130, .5));
 }
 
-.bigFlower span{
-    position:absolute;
+/* Kelopak bunga */
 
-    width:30px;
-    height:45px;
+.flower .petal {
+    position: absolute;
 
-    left:20px;
-    top:8px;
+    width: 12px;
+    height: 18px;
 
-    border-radius:50% 50% 45% 45%;
+    left: 6px;
+    top: 2px;
+
+    border-radius:
+        70% 70% 45% 45%;
 
     background:
         radial-gradient(
             circle at 50% 15%,
-            #fff,
-            #ffc2d8 25%,
-            #ff4d91 65%,
-            #b91455
+            #ffffff 0%,
+            #ffd8e6 18%,
+            #ff9cbd 42%,
+            #ff4b8c 72%,
+            #b91858 100%
         );
 
-    transform-origin:
-        50% 100%;
+    transform-origin: 50% 100%;
 }
 
-.bigFlower span:nth-child(1){
-    transform:rotate(0deg);
+/* 5 kelopak */
+
+.flower .petal:nth-child(1) {
+    transform: rotate(0deg);
 }
 
-.bigFlower span:nth-child(2){
-    transform:rotate(72deg);
+.flower .petal:nth-child(2) {
+    transform: rotate(72deg);
 }
 
-.bigFlower span:nth-child(3){
-    transform:rotate(144deg);
+.flower .petal:nth-child(3) {
+    transform: rotate(144deg);
 }
 
-.bigFlower span:nth-child(4){
-    transform:rotate(216deg);
+.flower .petal:nth-child(4) {
+    transform: rotate(216deg);
 }
 
-.bigFlower span:nth-child(5){
-    transform:rotate(288deg);
+.flower .petal:nth-child(5) {
+    transform: rotate(288deg);
 }
 
-.bigFlower .center{
-    position:absolute;
+/* Tengah bunga */
 
-    left:26px;
-    top:27px;
+.flower .flower-center {
+    position: absolute;
 
-    width:18px;
-    height:18px;
+    width: 7px;
+    height: 7px;
 
-    border-radius:50%;
+    left: 8.5px;
+    top: 8.5px;
+
+    border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
             #fffbd0,
-            #ffd447,
-            #d88700
+            #ffd447 55%,
+            #d78900
         );
 
-    z-index:5;
+    z-index: 10;
 
     box-shadow:
-        0 0 8px white,
-        0 0 20px #ffc857;
+        0 0 5px #fff,
+        0 0 12px #ffd35a;
 }
 
-@keyframes bigFalling{
+/* =========================
+   ANIMASI BUNGA
+========================= */
 
-    0%{
+@keyframes flowerFall {
+
+    0% {
         transform:
-            translateY(-100px)
-            translateX(0)
+            translate3d(0, -100px, 0)
             rotate(0deg)
-            scale(.4);
+            scale(.5);
 
-        opacity:0;
+        opacity: 0;
     }
 
-    10%{
-        opacity:1;
+    8% {
+        opacity: 1;
     }
 
-    100%{
+    50% {
+        opacity: 1;
+    }
+
+    100% {
         transform:
-            translateY(120vh)
-            translateX(var(--bigX))
-            rotate(700deg)
-            scale(1);
+            translate3d(var(--moveX), 115vh, 0)
+            rotate(720deg)
+            scale(var(--scale));
 
-        opacity:.1;
+        opacity: .15;
     }
 }
 
 /* =========================
-   PARTIKEL CAHAYA
+   BUNGA BESAR
 ========================= */
 
-.light{
-    position:absolute;
+.big-flower {
+    position: absolute;
 
-    width:4px;
-    height:4px;
+    top: -120px;
 
-    border-radius:50%;
-
-    background:white;
-
-    box-shadow:
-        0 0 8px white,
-        0 0 18px #ff8eb5;
+    width: 80px;
+    height: 80px;
 
     animation:
-        lightMove var(--lightDuration) linear forwards;
+        bigFlowerFall var(--duration) linear forwards;
+
+    filter:
+        drop-shadow(0 0 10px rgba(255, 120, 170, .9))
+        drop-shadow(0 0 25px rgba(255, 50, 130, .7));
 }
 
-@keyframes lightMove{
+.big-flower .petal {
+    position: absolute;
 
-    0%{
-        transform:
-            translateY(110vh)
-            scale(.3);
+    width: 32px;
+    height: 48px;
 
-        opacity:0;
-    }
+    left: 24px;
+    top: 10px;
 
-    20%{
-        opacity:.8;
-    }
+    border-radius:
+        50% 50% 45% 45%;
 
-    80%{
-        opacity:.5;
-    }
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #fff,
+            #ffd1e0 20%,
+            #ff76a5 48%,
+            #ec3477 75%,
+            #a8124e 100%
+        );
 
-    100%{
-        transform:
-            translateY(-20vh)
-            scale(1);
-
-        opacity:0;
-    }
+    transform-origin: 50% 100%;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .small{
-        font-size:9px;
-        letter-spacing:5px;
-    }
-
-    h1{
-        font-size:52px;
-    }
-
-    .subtitle{
-        font-size:16px;
-        line-height:1.7;
-    }
-
-    .heart{
-        font-size:30px;
-    }
-
-    .flower{
-        width:14px;
-        height:14px;
-    }
-
-    .bigFlower{
-        transform:scale(.7);
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- =========================
-     VIDEO
-========================= -->
-
-<video
-    id="video"
-    autoplay
-    muted
-    loop
-    playsinline
-    webkit-playsinline
-    preload="auto">
-
-    <source src="video.mp4" type="video/mp4">
-
-</video>
-
-
-<!-- =========================
-     EFFECT
-========================= -->
-
-<div class="overlay"></div>
-<div class="glow"></div>
-
-<div id="flowers"></div>
-
-
-<!-- =========================
-     TEXT
-========================= -->
-
-<div class="content">
-
-    <div class="small">
-        Sebuah perasaan
-    </div>
-
-    <h1>Rindu</h1>
-
-    <div class="subtitle">
-        Dibuat rindu oleh perasaan,
-        <br>
-        dilarang bertemu oleh keadaan,
-        <br>
-        dan dilarang bersatu oleh kenyataan.
-    </div>
-
-    <div class="heart">
-        ♥
-    </div>
-
-</div>
-
-
-<script>
-
-/* ==================================
-   PAKSA VIDEO MULAI SECEPAT MUNGKIN
-================================== */
-
-const video =
-    document.getElementById("video");
-
-video.muted = true;
-
-const playVideo = () => {
-
-    video.play().catch(() => {});
-
-};
-
-playVideo();
-
-document.addEventListener(
-    "DOMContentLoaded",
-    playVideo
-);
-
-window.addEventListener(
-    "load",
-    playVideo
-);
-
-
-/* ==================================
-   BUNGA JATUH
-================================== */
-
-const flowers =
-    document.getElementById("flowers");
-
-
-function createFlower(){
-
-    const flower =
-        document.createElement("div");
-
-    flower.className = "flower";
-
-    const size =
-        Math.random() * 15 + 10;
-
-    const duration =
-        Math.random() * 5 + 6;
-
-    const x =
-        Math.random() * 260 - 130;
-
-    const scale =
-        Math.random() * .8 + .7;
-
-    flower.style.left =
-        Math.random() * 100 + "%";
-
-    flower.style.width =
-        size + "px";
-
-    flower.style.height =
-        size + "px";
-
-    flower.style.setProperty(
-        "--x",
-        x + "px"
-    );
-
-    flower.style.setProperty(
-        "--scale",
-        scale
-    );
-
-    flower.style.setProperty(
-        "--duration",
-        duration + "s"
-    );
-
-    flowers.appendChild(flower);
-
-    setTimeout(
-        () => flower.remove(),
-        (duration + 1) * 1000
-    );
+.big-flower .petal:nth-child(1) {
+    transform: rotate(0deg);
 }
 
-
-/* ==================================
-   BUNGA BESAR
-================================== */
-
-function createBigFlower(){
-
-    const flower =
-        document.createElement("div");
-
-    flower.className =
-        "bigFlower";
-
-    for(let i=0;i<5;i++){
-
-        const petal =
-            document.createElement("span");
-
-        flower.appendChild(petal);
-    }
-
-    const center =
-        document.createElement("div");
-
-    center.className = "center";
-
-    flower.appendChild(center);
-
-    flower.style.left =
-        Math.random() * 100 + "%";
-
-    flower.style.setProperty(
-        "--bigX",
-        (Math.random() * 350 - 175) + "px"
-    );
-
-    const duration =
-        Math.random() * 5 + 8;
-
-    flower.style.setProperty(
-        "--bigDuration",
-        duration + "s"
-    );
-
-    flowers.appendChild(flower);
-
-    setTimeout(
-        () => flower.remove(),
-        (duration + 1) * 1000
-    );
+.big-flower .petal:nth-child(2) {
+    transform: rotate(72deg);
 }
 
-
-/* ==================================
-   BANYAK BUNGA DARI AWAL
-================================== */
-
-for(let i=0;i<70;i++){
-
-    setTimeout(
-        createFlower,
-        i * 60
-    );
+.big-flower .petal:nth-child(3) {
+    transform: rotate(144deg);
 }
 
-
-/* Bunga kecil terus turun */
-
-setInterval(
-    createFlower,
-    150
-);
-
-
-/* Bunga besar */
-
-setInterval(
-    createBigFlower,
-    1000
-);
-
-
-/* ==================================
-   CAHAYA BERKILAU
-================================== */
-
-function createLight(){
-
-    const light =
-        document.createElement("div");
-
-    light.className = "light";
-
-    light.style.left =
-        Math.random() * 100 + "%";
-
-    const duration =
-        Math.random() * 5 + 5;
-
-    light.style.setProperty(
-        "--lightDuration",
-        duration + "s"
-    );
-
-    flowers.appendChild(light);
-
-    setTimeout(
-        () => light.remove(),
-        (duration + 1) * 1000
-    );
+.big-flower .petal:nth-child(4) {
+    transform: rotate(216deg);
 }
 
-setInterval(
-    createLight,
-    350
-);
-
-</script>
-
-</body>
-</html>
+.big-flower .petal:nth-child(5) {
+    transform:
